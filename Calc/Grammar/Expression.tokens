@@ -1,0 +1,13 @@
+T__0=1
+T__1=2
+T__2=3
+PLUS=4
+MINUS=5
+MUL=6
+DIV=7
+NUMBER=8
+WHITESPACE=9
+'('=1
+')'=2
+'^'=3
+' '=9
