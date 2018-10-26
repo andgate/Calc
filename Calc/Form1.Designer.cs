@@ -59,6 +59,7 @@
             this.output.TabIndex = 0;
             this.output.Text = "0";
             this.output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.output.ReadOnly = true;
             // 
             // n7
             // 
@@ -168,6 +169,7 @@
             this.decBtn.TabIndex = 11;
             this.decBtn.Text = ".";
             this.decBtn.UseVisualStyleBackColor = true;
+            this.decBtn.Click += new System.EventHandler(this.decBtn_Click);
             // 
             // eqBtn
             // 
@@ -177,6 +179,7 @@
             this.eqBtn.TabIndex = 15;
             this.eqBtn.Text = "=";
             this.eqBtn.UseVisualStyleBackColor = true;
+            this.eqBtn.Click += new System.EventHandler(this.eqBtn_Click);
             // 
             // mulBtn
             // 
@@ -186,6 +189,7 @@
             this.mulBtn.TabIndex = 14;
             this.mulBtn.Text = "×";
             this.mulBtn.UseVisualStyleBackColor = true;
+            this.mulBtn.Click += new System.EventHandler(this.mulBtn_Click);
             // 
             // divBtn
             // 
@@ -195,6 +199,7 @@
             this.divBtn.TabIndex = 13;
             this.divBtn.Text = "÷";
             this.divBtn.UseVisualStyleBackColor = true;
+            this.divBtn.Click += new System.EventHandler(this.divBtn_Click);
             // 
             // clearBtn
             // 
@@ -204,6 +209,7 @@
             this.clearBtn.TabIndex = 12;
             this.clearBtn.Text = "CE";
             this.clearBtn.UseVisualStyleBackColor = true;
+            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
             // pctBtn
             // 
@@ -213,6 +219,7 @@
             this.pctBtn.TabIndex = 18;
             this.pctBtn.Text = "%";
             this.pctBtn.UseVisualStyleBackColor = true;
+            this.pctBtn.Click += new System.EventHandler(this.pctBtn_Click);
             // 
             // rparenBtn
             // 
@@ -222,6 +229,7 @@
             this.rparenBtn.TabIndex = 17;
             this.rparenBtn.Text = ")";
             this.rparenBtn.UseVisualStyleBackColor = true;
+            this.rparenBtn.Click += new System.EventHandler(this.rparenBtn_Click);
             // 
             // lparenBtn
             // 
@@ -231,6 +239,7 @@
             this.lparenBtn.TabIndex = 16;
             this.lparenBtn.Text = "(";
             this.lparenBtn.UseVisualStyleBackColor = true;
+            this.lparenBtn.Click += new System.EventHandler(this.lparenBtn_Click);
             // 
             // addBtn
             // 
@@ -240,6 +249,7 @@
             this.addBtn.TabIndex = 20;
             this.addBtn.Text = "+";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // subBtn
             // 
@@ -249,12 +259,13 @@
             this.subBtn.TabIndex = 19;
             this.subBtn.Text = "-";
             this.subBtn.UseVisualStyleBackColor = true;
+            this.subBtn.Click += new System.EventHandler(this.subBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 246);
+            this.ClientSize = new System.Drawing.Size(199, 231);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.subBtn);
             this.Controls.Add(this.pctBtn);

@@ -18,6 +18,7 @@ namespace Calc
             InitializeComponent();
         }
 
+        /* Callbacks for button clicks on decimal numbers */
         private void n0_Click(object sender, EventArgs e)
         {
             if (output.Text == "0") output.Text = "";
@@ -78,34 +79,64 @@ namespace Calc
             output.Text += "9";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        /* Decimal Point */
+        private void decBtn_Click(object sender, EventArgs e)
+        {
+            // This needs to be disabled when the last
+            // token in the input is not an integer.
+            output.Text += ".";
+        }
+
+        /* Equality */
+        private void eqBtn_Click(object sender, EventArgs e)
+        {
+            // This needs to parse the fields string as
+            // and expression, evaluate it, and
+            // replace the string with the result.
+        }
+
+        /* Clear current input string */
+        private void clearBtn_Click(object sender, EventArgs e)
+        {
+            output.Text = "0";
+        }
+
+        /* Percentage symbol, may remove */
+        private void pctBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void rparenBtn_Click(object sender, EventArgs e)
         {
-
+            if (output.Text == "0") output.Text = "";
+            output.Text += ")";
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void lparenBtn_Click(object sender, EventArgs e)
         {
-
+            if (output.Text == "0") output.Text = "";
+            output.Text += "(";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addBtn_Click(object sender, EventArgs e)
         {
-
+            output.Text += "+";
         }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void subBtn_Click(object sender, EventArgs e)
         {
-
+            output.Text += "-";
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void mulBtn_Click(object sender, EventArgs e)
         {
+            output.Text += "*";
+        }
 
+        private void divBtn_Click(object sender, EventArgs e)
+        {
+            output.Text += "÷";
         }
     }
 }
