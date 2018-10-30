@@ -27,6 +27,7 @@ foreign-library eval
   build-depends:       base,
                        megaparsec,
                        parser-combinators,
+                       prettyprinter,
                        text,
                        void
                 
