@@ -1,5 +1,4 @@
-﻿using Antlr4.Runtime;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +15,19 @@ namespace Calc
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+            {
+                MessageBox.Show("Form.KeyPress: '" +
+                    e.KeyChar.ToString() + "' pressed.");
+
+                MessageBox.Show("Form.KeyPress: '" +
+                            e.KeyChar.ToString() + "' consumed.");
+                e.Handled = true;
+            }
         }
 
         /* Callbacks for button clicks on decimal numbers */
@@ -90,9 +102,7 @@ namespace Calc
         /* Equality */
         private void eqBtn_Click(object sender, EventArgs e)
         {
-            // This needs to parse the fields string as
-            // and expression, evaluate it, and
-            // replace the string with the result.
+            output.Text = Eval.eval(output.Text);
         }
 
         /* Clear current input string */

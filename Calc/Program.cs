@@ -14,9 +14,11 @@ namespace Calc
         [STAThread]
         static void Main()
         {
+            Eval.HsStart();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Eval.HsEnd();
         }
     }
 }

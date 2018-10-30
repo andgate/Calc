@@ -5,22 +5,33 @@ grammar Expression;
  */
 
 
-exp : '(' exp ')'               #parensExp
-    | exp (MUL|DIV) exp         #mulDivExp
-	| exp (PLUS|MINUS) exp      #addSubExp
-	| <assoc=right> exp '^' exp #powExp
-	| NUMBER                    #numExp
+exp : exp (mul|div) exp      #expMulDiv
+    | exp (add|sub) exp      #expAddSub
+	| exp pow exp            #expPow
+	| (expNum|expParens)     #expAtom
     ;
+
+	
+expNum : NUMBER ;
+expParens : '(' exp ')' ;
+
+add : ADD ;
+sub : SUB ;
+mul : MUL ;
+div : DIV ;
+pow : POW ;
+
 
 
 /*
  * Lexer Rules
  */
 
-PLUS  : NUMBER '+' NUMBER ;
-MINUS : NUMBER '-' NUMBER ;
-MUL  : NUMBER '*' NUMBER ;
-DIV  : NUMBER '/' NUMBER ;
+ADD : '+' ;
+SUB : '-' ;
+MUL : '*' ;
+DIV : '÷' ;
+POW : '^' ;
 
 fragment DIGIT : [0-9] ;
 NUMBER         : DIGIT+ ([.,] DIGIT+)? ;

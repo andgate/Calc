@@ -1,0 +1,34 @@
+name:                eval
+version:             0.1.0.0
+-- synopsis:            
+-- description:         
+-- license:             
+-- license-file:        LICENSE
+author:              Gabriel Anderosn
+maintainer:          gabe4k@gmail.com
+build-type:          Simple
+cabal-version:       >=1.10
+
+foreign-library eval
+  type:                native-shared
+  lib-version-info:    6:3:2
+
+  if os(Windows)
+     options: standalone
+    -- mod-def-file: eval.def
+  
+  hs-source-dirs:      src/
+  c-sources:           csrc/StartEnd.c
+
+  other-modules:       Eval
+                       Eval.AST
+                       Eval.Parse
+  -- other-extensions: 
+  build-depends:       base,
+                       megaparsec,
+                       parser-combinators,
+                       text,
+                       void
+                
+  -- hs-source-dirs:    
+  default-language: Haskell2010

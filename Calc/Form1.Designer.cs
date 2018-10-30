@@ -44,7 +44,6 @@
             this.mulBtn = new System.Windows.Forms.Button();
             this.divBtn = new System.Windows.Forms.Button();
             this.clearBtn = new System.Windows.Forms.Button();
-            this.pctBtn = new System.Windows.Forms.Button();
             this.rparenBtn = new System.Windows.Forms.Button();
             this.lparenBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
@@ -55,15 +54,15 @@
             // 
             this.output.Location = new System.Drawing.Point(12, 13);
             this.output.Name = "output";
+            this.output.ReadOnly = true;
             this.output.Size = new System.Drawing.Size(174, 20);
             this.output.TabIndex = 0;
             this.output.Text = "0";
             this.output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.output.ReadOnly = true;
             // 
             // n7
             // 
-            this.n7.Location = new System.Drawing.Point(12, 77);
+            this.n7.Location = new System.Drawing.Point(12, 87);
             this.n7.Name = "n7";
             this.n7.Size = new System.Drawing.Size(39, 32);
             this.n7.TabIndex = 1;
@@ -73,7 +72,7 @@
             // 
             // n8
             // 
-            this.n8.Location = new System.Drawing.Point(57, 77);
+            this.n8.Location = new System.Drawing.Point(57, 87);
             this.n8.Name = "n8";
             this.n8.Size = new System.Drawing.Size(39, 32);
             this.n8.TabIndex = 2;
@@ -83,7 +82,7 @@
             // 
             // n9
             // 
-            this.n9.Location = new System.Drawing.Point(102, 77);
+            this.n9.Location = new System.Drawing.Point(102, 87);
             this.n9.Name = "n9";
             this.n9.Size = new System.Drawing.Size(39, 32);
             this.n9.TabIndex = 3;
@@ -93,7 +92,7 @@
             // 
             // n6
             // 
-            this.n6.Location = new System.Drawing.Point(102, 115);
+            this.n6.Location = new System.Drawing.Point(102, 125);
             this.n6.Name = "n6";
             this.n6.Size = new System.Drawing.Size(39, 32);
             this.n6.TabIndex = 6;
@@ -103,7 +102,7 @@
             // 
             // n5
             // 
-            this.n5.Location = new System.Drawing.Point(57, 115);
+            this.n5.Location = new System.Drawing.Point(57, 125);
             this.n5.Name = "n5";
             this.n5.Size = new System.Drawing.Size(39, 32);
             this.n5.TabIndex = 5;
@@ -113,7 +112,7 @@
             // 
             // n4
             // 
-            this.n4.Location = new System.Drawing.Point(12, 115);
+            this.n4.Location = new System.Drawing.Point(12, 125);
             this.n4.Name = "n4";
             this.n4.Size = new System.Drawing.Size(39, 32);
             this.n4.TabIndex = 4;
@@ -123,7 +122,7 @@
             // 
             // n1
             // 
-            this.n1.Location = new System.Drawing.Point(12, 153);
+            this.n1.Location = new System.Drawing.Point(12, 163);
             this.n1.Name = "n1";
             this.n1.Size = new System.Drawing.Size(39, 32);
             this.n1.TabIndex = 9;
@@ -133,7 +132,7 @@
             // 
             // n2
             // 
-            this.n2.Location = new System.Drawing.Point(57, 153);
+            this.n2.Location = new System.Drawing.Point(57, 163);
             this.n2.Name = "n2";
             this.n2.Size = new System.Drawing.Size(39, 32);
             this.n2.TabIndex = 8;
@@ -143,7 +142,7 @@
             // 
             // n3
             // 
-            this.n3.Location = new System.Drawing.Point(102, 153);
+            this.n3.Location = new System.Drawing.Point(102, 163);
             this.n3.Name = "n3";
             this.n3.Size = new System.Drawing.Size(39, 32);
             this.n3.TabIndex = 7;
@@ -153,7 +152,7 @@
             // 
             // n0
             // 
-            this.n0.Location = new System.Drawing.Point(12, 191);
+            this.n0.Location = new System.Drawing.Point(57, 197);
             this.n0.Name = "n0";
             this.n0.Size = new System.Drawing.Size(39, 32);
             this.n0.TabIndex = 10;
@@ -163,7 +162,7 @@
             // 
             // decBtn
             // 
-            this.decBtn.Location = new System.Drawing.Point(57, 191);
+            this.decBtn.Location = new System.Drawing.Point(12, 197);
             this.decBtn.Name = "decBtn";
             this.decBtn.Size = new System.Drawing.Size(39, 32);
             this.decBtn.TabIndex = 11;
@@ -173,9 +172,9 @@
             // 
             // eqBtn
             // 
-            this.eqBtn.Location = new System.Drawing.Point(102, 191);
+            this.eqBtn.Location = new System.Drawing.Point(102, 197);
             this.eqBtn.Name = "eqBtn";
-            this.eqBtn.Size = new System.Drawing.Size(39, 32);
+            this.eqBtn.Size = new System.Drawing.Size(84, 32);
             this.eqBtn.TabIndex = 15;
             this.eqBtn.Text = "=";
             this.eqBtn.UseVisualStyleBackColor = true;
@@ -183,7 +182,7 @@
             // 
             // mulBtn
             // 
-            this.mulBtn.Location = new System.Drawing.Point(147, 115);
+            this.mulBtn.Location = new System.Drawing.Point(147, 87);
             this.mulBtn.Name = "mulBtn";
             this.mulBtn.Size = new System.Drawing.Size(39, 32);
             this.mulBtn.TabIndex = 14;
@@ -193,7 +192,7 @@
             // 
             // divBtn
             // 
-            this.divBtn.Location = new System.Drawing.Point(147, 77);
+            this.divBtn.Location = new System.Drawing.Point(147, 49);
             this.divBtn.Name = "divBtn";
             this.divBtn.Size = new System.Drawing.Size(39, 32);
             this.divBtn.TabIndex = 13;
@@ -203,7 +202,7 @@
             // 
             // clearBtn
             // 
-            this.clearBtn.Location = new System.Drawing.Point(147, 39);
+            this.clearBtn.Location = new System.Drawing.Point(102, 49);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(39, 32);
             this.clearBtn.TabIndex = 12;
@@ -211,19 +210,9 @@
             this.clearBtn.UseVisualStyleBackColor = true;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
-            // pctBtn
-            // 
-            this.pctBtn.Location = new System.Drawing.Point(102, 39);
-            this.pctBtn.Name = "pctBtn";
-            this.pctBtn.Size = new System.Drawing.Size(39, 32);
-            this.pctBtn.TabIndex = 18;
-            this.pctBtn.Text = "%";
-            this.pctBtn.UseVisualStyleBackColor = true;
-            this.pctBtn.Click += new System.EventHandler(this.pctBtn_Click);
-            // 
             // rparenBtn
             // 
-            this.rparenBtn.Location = new System.Drawing.Point(57, 39);
+            this.rparenBtn.Location = new System.Drawing.Point(57, 49);
             this.rparenBtn.Name = "rparenBtn";
             this.rparenBtn.Size = new System.Drawing.Size(39, 32);
             this.rparenBtn.TabIndex = 17;
@@ -233,7 +222,7 @@
             // 
             // lparenBtn
             // 
-            this.lparenBtn.Location = new System.Drawing.Point(12, 39);
+            this.lparenBtn.Location = new System.Drawing.Point(12, 49);
             this.lparenBtn.Name = "lparenBtn";
             this.lparenBtn.Size = new System.Drawing.Size(39, 32);
             this.lparenBtn.TabIndex = 16;
@@ -243,7 +232,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(147, 191);
+            this.addBtn.Location = new System.Drawing.Point(147, 163);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(39, 32);
             this.addBtn.TabIndex = 20;
@@ -253,7 +242,7 @@
             // 
             // subBtn
             // 
-            this.subBtn.Location = new System.Drawing.Point(147, 153);
+            this.subBtn.Location = new System.Drawing.Point(147, 125);
             this.subBtn.Name = "subBtn";
             this.subBtn.Size = new System.Drawing.Size(39, 32);
             this.subBtn.TabIndex = 19;
@@ -265,10 +254,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(199, 231);
+            this.ClientSize = new System.Drawing.Size(199, 352);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.subBtn);
-            this.Controls.Add(this.pctBtn);
             this.Controls.Add(this.rparenBtn);
             this.Controls.Add(this.lparenBtn);
             this.Controls.Add(this.eqBtn);
@@ -288,7 +276,6 @@
             this.Controls.Add(this.n7);
             this.Controls.Add(this.output);
             this.Name = "Form1";
-            this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,7 +299,6 @@
         private System.Windows.Forms.Button mulBtn;
         private System.Windows.Forms.Button divBtn;
         private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.Button pctBtn;
         private System.Windows.Forms.Button rparenBtn;
         private System.Windows.Forms.Button lparenBtn;
         private System.Windows.Forms.Button addBtn;
