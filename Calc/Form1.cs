@@ -12,13 +12,17 @@ namespace Calc
 {
     public partial class Form1 : Form
     {
+        List<string> history;
+
         public Form1()
         {
+            history = new List<string>();
             InitializeComponent();
         }
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            /*
             if (e.KeyChar >= 48 && e.KeyChar <= 57)
             {
                 MessageBox.Show("Form.KeyPress: '" +
@@ -27,7 +31,7 @@ namespace Calc
                 MessageBox.Show("Form.KeyPress: '" +
                             e.KeyChar.ToString() + "' consumed.");
                 e.Handled = true;
-            }
+            } */
         }
 
         /* Callbacks for button clicks on decimal numbers */
@@ -69,25 +73,21 @@ namespace Calc
 
         private void n6_Click(object sender, EventArgs e)
         {
-            if (output.Text == "0") output.Text = "";
             output.Text += "6";
         }
 
         private void n7_Click(object sender, EventArgs e)
         {
-            if (output.Text == "0") output.Text = "";
             output.Text += "7";
         }
 
         private void n8_Click(object sender, EventArgs e)
         {
-            if (output.Text == "0") output.Text = "";
             output.Text += "8";
         }
 
         private void n9_Click(object sender, EventArgs e)
         {
-            if (output.Text == "0") output.Text = "";
             output.Text += "9";
         }
 
@@ -102,30 +102,37 @@ namespace Calc
         /* Equality */
         private void eqBtn_Click(object sender, EventArgs e)
         {
-            output.Text = Eval.eval(output.Text);
+            string result = Eval.eval(output.Text);
+            string resultMsg = output.Text + " = " + result;
+
+            history.Add(resultMsg);
+            resultsBox.Text = string.Join("\n", history);
+            output.Clear();
         }
 
         /* Clear current input string */
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            output.Text = "0";
+            output.Clear();
+            history.RemoveAt(history.Count() - 1);
+            resultsBox.Text = string.Join("\n", history);
         }
 
-        /* Percentage symbol, may remove */
-        private void pctBtn_Click(object sender, EventArgs e)
+        /* Clear current input string */
+        private void clearAllBtn_Click(object sender, EventArgs e)
         {
-
+            output.Clear();
+            resultsBox.Clear();
+            history.Clear();
         }
 
         private void rparenBtn_Click(object sender, EventArgs e)
         {
-            if (output.Text == "0") output.Text = "";
             output.Text += ")";
         }
 
         private void lparenBtn_Click(object sender, EventArgs e)
         {
-            if (output.Text == "0") output.Text = "";
             output.Text += "(";
         }
 
@@ -146,7 +153,17 @@ namespace Calc
 
         private void divBtn_Click(object sender, EventArgs e)
         {
-            output.Text += "÷";
+            output.Text += "/";
+        }
+
+        private void expBtn_Click(object sender, EventArgs e)
+        {
+            output.Text += "^";
+        }
+
+        private void output_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
