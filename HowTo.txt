@@ -1,0 +1,23 @@
+Build Instructions
+----------------------
+1) Install the Haskell Platform.
+https://www.haskell.org/platform/
+
+2) Open a command line, go to the source folder.
+
+3) Run setup.bat, located in the root of the source folder.
+
+4) Once setup.bat is finished, open Calc.sln in visual stuido.
+
+5) Build the project in visual studio
+
+
+Install Instructions
+----------------------
+1) Build the project in visual studio with the Release configuration.
+
+2) Go to Calc\bin\Release
+
+3) Copy the files "Calc.exe" and "eval.dll" to the folder you wish to install this calculator.
+
+4) Finished!

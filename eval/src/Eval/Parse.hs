@@ -36,21 +36,34 @@ parensP :: Parser a -> Parser a
 parensP = between lparen rparen
 
 integerP :: Parser Integer
-integerP = L.signed sc (lexeme L.decimal)
+integerP = lexeme L.decimal
 
 doubleP :: Parser Double
-doubleP = L.signed sc (lexeme L.float)
+doubleP = lexeme L.float
 
 expP :: Parser AST
 expP = makeExprParser termP table <?> "expression"
 
 termP :: Parser AST
-termP = ( Val    <$> (   try doubleP
-                     <|> (fromInteger <$> integerP)
-                     ) <?> "number"
-        )
+termP = termPrefix
+    <|> termVal
     <|> expParensP
 
+
+termPrefix :: Parser AST
+termPrefix = (try termNeg <|> termPos)
+
+termPos :: Parser AST
+termPos = L.symbol sc "+" *> (UnOp OpPos <$> termP)
+
+termNeg :: Parser AST
+termNeg = L.symbol sc "-" *> (UnOp OpNeg <$> termP)
+
+termVal :: Parser AST
+termVal =
+  Val <$> ( try doubleP
+      <|>  (fromInteger <$> integerP)
+          ) <?> "number"
 
 expParensP :: Parser AST
 expParensP =
@@ -58,10 +71,10 @@ expParensP =
    <|> (lparen *> expP *> customFailure MissingParen)
 
 
-table = [ [ binary "^"  (BinOp OpPow)]
+table = [ [ binary  "^"  (BinOp OpPow)                              ]
         , [ binary  "*"  (BinOp OpMul), binary  "/"  (BinOp OpDiv)  ]
         , [ binary  "+"  (BinOp OpAdd), binary  "-"  (BinOp OpSub)  ]
         ]
 
--- Left associative binary operation
 binary  name f = InfixL  (f <$ L.symbol sc name)
+prefix  name f = Prefix  (f <$ L.symbol sc name)

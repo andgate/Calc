@@ -1,7 +1,11 @@
 {-# LANGUAGE LambdaCase #-}
 module Eval.AST where
 
-data Op
+data Op1
+  = OpPos
+  | OpNeg
+
+data Op2
   = OpAdd
   | OpSub
   | OpMul
@@ -10,7 +14,8 @@ data Op
 
 data AST
   = Val Double
-  | BinOp Op AST AST
+  | UnOp Op1 AST
+  | BinOp Op2 AST AST
   | Parens AST
 
 
@@ -18,6 +23,13 @@ data AST
 simplify :: AST -> Double
 simplify = \case
   Val x     -> x
+
+  UnOp op a ->
+    let a' = simplify a
+    in
+      case op of
+        OpPos -> a'
+        OpNeg -> negate a'
 
   BinOp op a b ->
     let a' = simplify a
