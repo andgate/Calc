@@ -23,11 +23,12 @@ foreign-library eval
   other-modules:       Eval
                        Eval.AST
                        Eval.Parse
+                       Eval.Parse.Error
   -- other-extensions: 
   build-depends:       base,
+                       containers,
                        megaparsec,
                        parser-combinators,
-                       prettyprinter,
                        text,
                        void
                 

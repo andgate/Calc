@@ -1,6 +1,7 @@
 cd eval
-cabal sandbox init
-cabal install --dependencies-only
+REM cabal update
+REM cabal sandbox init
+REM cabal install --dependencies-only
 cabal build
 cd ..
 

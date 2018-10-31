@@ -102,11 +102,13 @@ namespace Calc
         /* Equality */
         private void eqBtn_Click(object sender, EventArgs e)
         {
-            string result = Eval.eval(output.Text);
-            string resultMsg = output.Text + " = " + result;
+            if (output.Text.Trim().Equals("")) return;
 
-            history.Add(resultMsg);
-            resultsBox.Text = string.Join("\n", history);
+            string result = Eval.eval(output.Text.Trim());
+            //string resultMsg = output.Text + " = " + result;
+
+            history.Add(result);
+            resultsBox.Text = string.Join("\n---\n", history);
             output.Clear();
         }
 
@@ -114,8 +116,11 @@ namespace Calc
         private void clearBtn_Click(object sender, EventArgs e)
         {
             output.Clear();
-            history.RemoveAt(history.Count() - 1);
-            resultsBox.Text = string.Join("\n", history);
+            if (history.Count() > 0)
+            {
+                history.RemoveAt(history.Count() - 1);
+                resultsBox.Text = string.Join("\n---\n", history);
+            }
         }
 
         /* Clear current input string */
@@ -164,6 +169,32 @@ namespace Calc
         private void output_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void resultsBox_TextChanged(object sender, EventArgs e)
+        {
+            // set the current caret position to the end
+            resultsBox.SelectionStart = resultsBox.Text.Length;
+            // scroll it automatically
+            resultsBox.ScrollToCaret();
+        }
+
+        private void resultsBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {   
+                ContextMenu contextMenu = new System.Windows.Forms.ContextMenu();
+                MenuItem menuItem = new MenuItem("Copy");
+                menuItem.Click += new EventHandler(CopyAction);
+                contextMenu.MenuItems.Add(menuItem);
+
+                resultsBox.ContextMenu = contextMenu;
+            }
+        }
+
+        private void CopyAction(object sender, EventArgs e)
+        {
+            Clipboard.SetText(resultsBox.SelectedText);
         }
     }
 }

@@ -12,16 +12,17 @@ eval input =
 eval' :: String -> String
 eval' input =
   case parseExp input of
-    Left  msg -> msg
-    Right e   ->
-      let r = simplify e
-          output = show r
-      in
-        if r == fromIntegral (truncate r)
-          then take (length output - 2) output
-          else show r
+    Left  msg -> "ERROR: " ++ show input ++ "\n" ++ msg
+    Right e   -> input ++ " = " ++ sanitize (simplify e)
 
 
+sanitize :: Double -> String
+sanitize x
+  | x == fromIntegral (truncate x)
+      = take (length str - 2) str
+  | otherwise = str
+  where
+    str = show x
 
 
 foreign export ccall eval :: CString -> IO CString

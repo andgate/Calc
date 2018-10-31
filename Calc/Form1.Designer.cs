@@ -60,7 +60,6 @@
             this.output.Size = new System.Drawing.Size(174, 20);
             this.output.TabIndex = 2;
             this.output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.output.TextChanged += new System.EventHandler(this.output_TextChanged);
             // 
             // n7
             // 
@@ -254,12 +253,16 @@
             // 
             // resultsBox
             // 
+            this.resultsBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resultsBox.Location = new System.Drawing.Point(12, 12);
             this.resultsBox.Name = "resultsBox";
             this.resultsBox.ReadOnly = true;
             this.resultsBox.Size = new System.Drawing.Size(219, 151);
             this.resultsBox.TabIndex = 1;
             this.resultsBox.Text = "";
+            this.resultsBox.TextChanged += new System.EventHandler(this.resultsBox_TextChanged);
+            this.resultsBox.MouseUp += this.resultsBox_MouseUp;
+
             // 
             // clrBtn
             // 
@@ -309,7 +312,9 @@
             this.Controls.Add(this.n8);
             this.Controls.Add(this.n7);
             this.Controls.Add(this.output);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.Text = "Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 

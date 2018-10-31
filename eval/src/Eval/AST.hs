@@ -27,6 +27,7 @@ simplify = \case
         OpAdd -> a' + b'
         OpSub -> a' - b'
         OpMul -> a' * b'
-        OpDiv -> a' / b'
+        OpDiv | b' /= 0 -> a' / b'
+              | b' == 0 -> 0/0 -- Should return NaN
         OpPow -> a' ** b'
   Parens e -> simplify e
